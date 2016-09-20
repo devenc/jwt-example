@@ -6,5 +6,5 @@ module.exports = merge(prodEnv, {
   API_LOCATION: '"http://jwt-example.dev/api/v1"',
   BROADCAST_ENDPOINT: '"http://jwt-example.dev/broadcasting/auth"',
   PUSHER_KEY: '"f4a54dd79660dc8fc60b"',
-  PUSHER_CLUSTER: '"eu"',
-});
+  PUSHER_CLUSTER: '"eu"'
+})

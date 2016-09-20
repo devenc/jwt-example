@@ -12,6 +12,7 @@ export const mutations = {
       const bearer = `Bearer ${localStorage.getItem('id_token')}`;
 
       Vue.echo.options.auth.headers.Authorization = bearer;
+      Vue.echo.connector.pusher.config.auth.headers.Authorization = bearer;
       Vue.http.headers.common.Authorization = bearer;
     }
   },
@@ -21,14 +22,18 @@ export const mutations = {
 
     state.authenticated = true;
     localStorage.setItem('id_token', token);
+
     Vue.echo.options.auth.headers.Authorization = bearer;
+    Vue.echo.connector.pusher.config.auth.headers.Authorization = bearer;
     Vue.http.headers.common.Authorization = bearer;
   },
 
   [LOGOUT](state) {
     state.authenticated = false;
     localStorage.removeItem('id_token');
+
     Vue.echo.options.auth.headers.Authorization = null;
+    Vue.echo.connector.pusher.config.auth.headers.Authorization = null;
     Vue.http.headers.common.Authorization = null;
   },
 };
